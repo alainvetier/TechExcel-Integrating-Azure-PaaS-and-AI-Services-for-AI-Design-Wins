@@ -2,7 +2,8 @@
 param location string = resourceGroup().location
 
 @description('Password for the SQL Server admin user. PLEASE CHANGE THIS BEFORE DEPLOYMENT!')
-param sqlAdminPassword string = 'g@G9@2nD7C1BP%uh'
+#disable-next-line secure-secrets-in-params
+param sqlAdminPassword string = 'FullMetal123!'
 
 @description('Model deployments for OpenAI')
 param deployments array = [
@@ -181,7 +182,7 @@ resource speechService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
 }
 
 @description('Creates an Azure AI Services Language service.')
-resource languagteService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
+resource languageService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
   name: languageServiceName
   location: location
   kind: 'TextAnalytics'
